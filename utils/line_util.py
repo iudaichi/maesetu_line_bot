@@ -11,7 +11,7 @@ class TextMessageUtil:
         num = re.sub("\\D", "", self.event.message.text)
         if int(num) not in num_list:
             return
-        image_url = f'{heroku_url}/static/{num}.png'
+        image_url = f'{heroku_url}/static/{num}.jpg'
         image_message = ImageSendMessage(
             original_content_url=image_url,
             preview_image_url=image_url
