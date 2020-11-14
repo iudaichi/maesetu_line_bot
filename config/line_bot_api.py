@@ -12,3 +12,4 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 JST = timezone(timedelta(hours=+9), 'JST')
 heroku_url = "https://maesetu-line-bot.herokuapp.com"
+num_list = [200016, 617859, 876184, 471227]
