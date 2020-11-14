@@ -1,0 +1,49 @@
+   "5": {
+        "day_of_week": 1,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },
+    "6": {
+        "day_of_week": ,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },
+    "7": {
+        "day_of_week": ,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },
+    "8": {
+        "day_of_week": ,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },
+    "9": {
+        "day_of_week": ,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },
+    "10": {
+        "day_of_week": ,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },
+    "11": {
+        "day_of_week": ,
+        "time_table": ,
+        "class_name": "",
+        "class_room_number": "",
+        "class_room_password": ""
+    },

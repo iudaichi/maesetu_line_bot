@@ -1,0 +1,140 @@
+{
+    "data": [
+        {
+            "class_number": "e",
+            "day_of_week": 0,
+            "time_table": 2,
+            "class_name": "リサーチ入門",
+            "class_room_number": "91593460762",
+            "class_room_password": "668145"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 0,
+            "time_table": 3,
+            "class_name": "ビジネス英語実習Ⅱ(1)",
+            "class_room_number": "95948516980",
+            "class_room_password": "766778"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 0,
+            "time_table": 4,
+            "class_name": "ビジネス英語実習Ⅱ(2)",
+            "class_room_number": "95100452974",
+            "class_room_password": "164903"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 0,
+            "time_table": 5,
+            "class_name": "オペレーティングシステム演習",
+            "class_room_number": "92161185523",
+            "class_room_password": "843059"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 0,
+            "time_table": 5,
+            "class_name": "コンピュータアーキテクチャ",
+            "class_room_number": "9202482606",
+            "class_room_password": "324622"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 1,
+            "time_table": 1,
+            "class_name": "法務リテラシーⅠ",
+            "class_room_number": "94826602239",
+            "class_room_password": "432921"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 1,
+            "time_table": 2,
+            "class_name": "数学基礎C",
+            "class_room_number": "98500216601",
+            "class_room_password": "911270"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 1,
+            "time_table": 3,
+            "class_name": "スタートアップ基礎",
+            "class_room_number": "91461048183",
+            "class_room_password": "077091"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 1,
+            "time_table": 4,
+            "class_name": "ビジネス英語実習Ⅱ",
+            "class_room_number": "98969234772",
+            "class_room_password": "312345"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 2,
+            "time_table": 2,
+            "class_name": "数学基礎B",
+            "class_room_number": "95388534604",
+            "class_room_password": "052127"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 2,
+            "time_table": 3,
+            "class_name": "プログラミングⅡ",
+            "class_room_number": "98213836017",
+            "class_room_password": "579164"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 2,
+            "time_table": 4,
+            "class_name": "プログラミングⅡ",
+            "class_room_number": "98213836017",
+            "class_room_password": "579164"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 3,
+            "time_table": 1,
+            "class_name": "ビジネス英語実習Ⅱ（",
+            "class_room_number": "94871148847",
+            "class_room_password": "368187"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 3,
+            "time_table": 2,
+            "class_name": "ネットワーク技術",
+            "class_room_number": "99133378449",
+            "class_room_password": "643409"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 3,
+            "time_table": 3,
+            "class_name": "イノプロⅡ",
+            "class_room_number": "91290355909",
+            "class_room_password": "769679"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 3,
+            "time_table": 4,
+            "class_name": "イノプロⅡ",
+            "class_room_number": "91290355909",
+            "class_room_password": "769679"
+        },
+        {
+            "class_number": "e",
+            "day_of_week": 5,
+            "time_table": 5,
+            "class_name": "OS演習",
+            "class_room_number": "92524066082",
+            "class_room_password": "414935"
+        }
+    ]
+}
