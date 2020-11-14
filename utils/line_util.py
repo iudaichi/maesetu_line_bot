@@ -19,7 +19,7 @@ class TextMessageUtil:
         announce_message = TextSendMessage(
             text="はしれ！まえせつをプレイしてくれてありがとう！\n\n今回の特典写真はこちら！")
         thx_message = TextSendMessage(
-            text="ほかにも様々な特典が隠されているので引き続きプレイしてゲットしよう！")
+            text="ほかにも様々な特典が隠されているので引き続きプレイしてゲットしよう！\n\nhttps://iudaichi.github.io/maesetu_run_game/")
         messages = [announce_message, image_message, thx_message]
         line_bot_api.reply_message(
             self.event.reply_token, messages=messages)
