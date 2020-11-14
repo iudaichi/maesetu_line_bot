@@ -8,8 +8,8 @@ class TextMessageUtil:
 
     def send_pass_image(self):
         image_message = ImageSendMessage(
-            original_content_url=f'{heroku_url}/static/logo.jpg',
-            preview_image_url=f'{heroku_url}/static/logo.jpg'
+            original_content_url=f'{heroku_url}/static/logo.png',
+            preview_image_url=f'{heroku_url}/static/logo.png'
         )
         line_bot_api.reply_message(
             self.event.reply_token, messages=image_message)
