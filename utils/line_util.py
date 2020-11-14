@@ -1,4 +1,4 @@
-from linebot.models import ImageSendMessage
+from linebot.models import ImageSendMessage, TextSendMessage
 from config.line_bot_api import line_bot_api, heroku_url, num_list
 import re
 
@@ -16,5 +16,10 @@ class TextMessageUtil:
             original_content_url=image_url,
             preview_image_url=image_url
         )
+        announce_message = TextSendMessage(
+            text="はしれ！まえせつをプレイしてくれてありがとう！\n\n今回の特典写真はこちら！")
+        thx_message = TextSendMessage(
+            text="ほかにも様々な特典が隠されているので引き続きプレイしてゲットしよう！")
+        messages = [announce_message, image_message, thx_message]
         line_bot_api.reply_message(
-            self.event.reply_token, messages=image_message)
+            self.event.reply_token, messages=messages)
