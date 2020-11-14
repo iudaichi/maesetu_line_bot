@@ -1,5 +1,4 @@
 import os
-
 from linebot import LineBotApi, WebhookHandler
 
 
