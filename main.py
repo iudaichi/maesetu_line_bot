@@ -8,6 +8,8 @@ import json
 from fastapi.staticfiles import StaticFiles
 import datetime
 from fastapi.templating import Jinja2Templates
+import redis
+
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
 
@@ -79,17 +81,18 @@ async def reward(request: Request, password: str):
     num = password_n[1:-2]
     num = str(int(num, pass1))
     num = int(num, pass2)
-    with open('config/time.json') as f:
-        time_list = json.load(f)
+    pool = redis.ConnectionPool(host='pike.redistogo.com',
+                                port=11574, db=0, password='585f4a2cfe0f853d9753d7dd38a550d2')
+    r = redis.StrictRedis(connection_pool=pool)
+    print(r)
     now_time = datetime.datetime.now().timestamp()
-    print(time_list)
-    if password_n in time_list:
-        print(time_list[password_n])
-        if now_time > time_list[password_n] + 600:
+    o_time = r.get(password_n)
+
+    if o_time:
+        print(o_time)
+        if now_time > o_time + 600:
             return {"no": "sss"}
-    time_list[password_n] = datetime.datetime.now().timestamp()
-    with open('config/test2.json', 'w') as f:
-        json.dump(time_list, f, indent=4)
+    r.hset(password_n, datetime.datetime.now().timestamp())
     image_file = "logo.png"
     return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
 
