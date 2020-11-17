@@ -6,7 +6,10 @@ from utils.line_router import TextMessageRouter
 from linebot.models import MessageEvent, TextMessage
 import json
 from fastapi.staticfiles import StaticFiles
+from starlette.templating import Jinja2Templates  # new
 app = FastAPI()
+templates = Jinja2Templates(directory="templates")
+jinja_env = templates.env  # Jinja2.Environment : filterやglobalの設定用
 
 app.include_router(
     api_router.app,
@@ -37,8 +40,29 @@ def callback(X_Line_Signature: str = Header(...), body=Body(...)):
 
 
 @app.get("/test")
-async def test():
-    return {"result": "ok"}
+async def test(password: str):
+    try:
+        password_n = ""
+        for x in str(password):
+            if x in pass_dic_n:
+                password_n += pass_dic_n[x]
+            else:
+                password_n += x
+        print(password_n)
+        pass1 = int(password_n[-2:])
+        pass2 = int(password_n[:1])
+        num = password_n[1:-2]
+        num = str(int(num, pass1))
+        num = int(num, pass2)
+        return {
+            "result": "ok",
+            "password_n": password_n,
+            "num": num
+        }
+    except Exception:
+        return {
+            "result": "ng",
+        }
 
 
 @app.get("/reward/")
@@ -55,11 +79,9 @@ async def reward(password: str):
     num = password_n[1:-2]
     num = str(int(num, pass1))
     num = int(num, pass2)
-    return {
-        "result": "ok",
-        "password_n": password_n,
-        "num": num
-    }
+    return templates.TemplateResponse('sub.html',
+                                      {
+                                          "number": num})
 
 
 @handler.add(MessageEvent, message=TextMessage)
