@@ -10,7 +10,7 @@ import datetime
 from fastapi.templating import Jinja2Templates
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
-
+time_list = {}
 app.include_router(
     api_router.app,
     prefix="/api",
@@ -79,8 +79,8 @@ async def reward(request: Request, password: str):
     num = password_n[1:-2]
     num = str(int(num, pass1))
     num = int(num, pass2)
-    time_list = {}
     now_time = datetime.datetime.now().timestamp()
+    print(time_list)
     if password_n in time_list:
         print(time_list[password_n])
         print(now_time + 600)
