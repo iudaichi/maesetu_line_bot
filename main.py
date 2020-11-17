@@ -88,7 +88,8 @@ async def reward(request: Request, password: str):
     time_list[password_n] = datetime.datetime.now().timestamp()
     with open('config/test2.json', 'w') as f:
         json.dump(time_list, f, indent=4)
-    return templates.TemplateResponse("sub.html", {"request": request, "number": num})
+    image_file = "logo.png"
+    return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'/static/{image_file}'})
 
 
 @handler.add(MessageEvent, message=TextMessage)
