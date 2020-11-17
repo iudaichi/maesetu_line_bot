@@ -86,7 +86,7 @@ async def reward(request: Request, password: str):
         if now_time + 600 > time_list[password_n]:
             return {"no": "sss"}
     time_list[password_n] = datetime.datetime.now().timestamp()
-    with open('data/dst/test2.json', 'w') as f:
+    with open('config/test2.json', 'w') as f:
         json.dump(time_list, f, indent=4)
     return templates.TemplateResponse("sub.html", {"request": request, "num": num})
 
