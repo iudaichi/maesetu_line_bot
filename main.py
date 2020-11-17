@@ -88,10 +88,9 @@ async def reward(request: Request, password: str):
     now_time = datetime.datetime.now().timestamp()
     o_time = r.get(password_n)
     if o_time:
+        o_time = str(o_time, encoding='utf-8')
         print(o_time)
-        o_time = round(str(o_time, encoding='utf-8'))
-        print(o_time)
-        if int(round(now_time)) > o_time + 600:
+        if now_time > float(o_time) + 600:
             return {"no": "sss"}
     r.set(password_n, datetime.datetime.now().timestamp())
     image_file = "logo.png"
