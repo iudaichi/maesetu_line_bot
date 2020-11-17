@@ -2,4 +2,4 @@ fastapi==0.52.0
 line-bot-sdk==1.15.0
 uvicorn==0.10.9
 aiofiles==0.4.0
-Jinja2==2.10.3
+Jinja2==2.11.2

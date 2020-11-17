@@ -6,10 +6,10 @@ from utils.line_router import TextMessageRouter
 from linebot.models import MessageEvent, TextMessage
 import json
 from fastapi.staticfiles import StaticFiles
-from starlette.templating import Jinja2Templates  # new
+import datetime
+from starlette.responses import StreamingResponse
+
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
-jinja_env = templates.env  # Jinja2.Environment : filterやglobalの設定用
 
 app.include_router(
     api_router.app,
@@ -79,9 +79,16 @@ async def reward(password: str):
     num = password_n[1:-2]
     num = str(int(num, pass1))
     num = int(num, pass2)
-    return templates.TemplateResponse('sub.html',
-                                      {
-                                          "number": num})
+    with open('config/time.json') as f:
+        time_list = json.load(f)
+    now_time = datetime.datetime.now().timestamp()
+    if password_n in time_list:
+        if now_time + 600 > time_list[password_n]:
+            return {"no": "sss"}
+    time_list[password_n] = datetime.datetime.now().timestamp()
+    with open('data/dst/test2.json', 'w') as f:
+        json.dump(time_list, f, indent=4)
+    return "ok"
 
 
 @handler.add(MessageEvent, message=TextMessage)
