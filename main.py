@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Header, Body, HTTPException
+from fastapi import FastAPI, Header, Body, HTTPException, Request
 from linebot.exceptions import InvalidSignatureError
 from config.line_bot_api import handler
 from api import router as api_router
@@ -7,8 +7,8 @@ from linebot.models import MessageEvent, TextMessage
 import json
 from fastapi.staticfiles import StaticFiles
 import datetime
-from starlette.responses import StreamingResponse
-
+from fastapi.templating import Jinja2Templates
+templates = Jinja2Templates(directory="templates")
 app = FastAPI()
 
 app.include_router(
@@ -66,7 +66,7 @@ async def test(password: str):
 
 
 @app.get("/reward/")
-async def reward(password: str):
+async def reward(request: Request, password: str):
     password_n = ""
     for x in str(password):
         if x in pass_dic_n:
@@ -88,7 +88,7 @@ async def reward(password: str):
     time_list[password_n] = datetime.datetime.now().timestamp()
     with open('data/dst/test2.json', 'w') as f:
         json.dump(time_list, f, indent=4)
-    return "ok"
+    return templates.TemplateResponse("sub.html", {"request": request, "num": num})
 
 
 @handler.add(MessageEvent, message=TextMessage)
