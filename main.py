@@ -88,7 +88,7 @@ async def reward(request: Request, password: str):
     time_list[password_n] = datetime.datetime.now().timestamp()
     with open('config/test2.json', 'w') as f:
         json.dump(time_list, f, indent=4)
-    return templates.TemplateResponse("sub.html", {"request": request, "num": num})
+    return templates.TemplateResponse("sub.html", {"request": request, "number": num})
 
 
 @handler.add(MessageEvent, message=TextMessage)
