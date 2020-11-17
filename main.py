@@ -82,6 +82,8 @@ async def reward(request: Request, password: str):
     time_list = {}
     now_time = datetime.datetime.now().timestamp()
     if password_n in time_list:
+        print(time_list[password_n])
+        print(now_time + 600)
         if now_time + 600 < time_list[password_n]:
             return {"no": "sss"}
     time_list[password_n] = datetime.datetime.now().timestamp()
