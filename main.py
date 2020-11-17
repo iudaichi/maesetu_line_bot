@@ -10,7 +10,7 @@ import datetime
 from fastapi.templating import Jinja2Templates
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
-time_list = {}
+
 app.include_router(
     api_router.app,
     prefix="/api",
@@ -79,15 +79,17 @@ async def reward(request: Request, password: str):
     num = password_n[1:-2]
     num = str(int(num, pass1))
     num = int(num, pass2)
+    with open('config/time.json') as f:
+        time_list = json.load(f)
     now_time = datetime.datetime.now().timestamp()
     print(time_list)
     if password_n in time_list:
         print(time_list[password_n])
-        print(now_time + 600)
-        if now_time + 600 < time_list[password_n]:
+        if now_time > time_list[password_n] + 600:
             return {"no": "sss"}
     time_list[password_n] = datetime.datetime.now().timestamp()
-
+    with open('config/test2.json', 'w') as f:
+        json.dump(time_list, f, indent=4)
     image_file = "logo.png"
     return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
 
