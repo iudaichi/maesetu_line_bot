@@ -89,7 +89,7 @@ async def reward(request: Request, password: str):
     with open('config/test2.json', 'w') as f:
         json.dump(time_list, f, indent=4)
     image_file = "logo.png"
-    return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'/static/{image_file}'})
+    return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
 
 
 @handler.add(MessageEvent, message=TextMessage)
