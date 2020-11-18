@@ -82,7 +82,8 @@ async def reward(request: Request, password: str):
                                     port=11574, db=0, password='585f4a2cfe0f853d9753d7dd38a550d2')
         r = redis.StrictRedis(connection_pool=pool)
         now_time = datetime.datetime.now().timestamp()
-        o_time = str(r.get(password_n), encoding='utf-8')
+        o_time = r.get(password_n)
+        o_time = str(o_time, encoding='utf-8')
         if o_time:
             if now_time > float(o_time) + 600:
                 return {"no": "sss"}
