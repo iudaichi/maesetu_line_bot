@@ -76,25 +76,19 @@ async def reward(request: Request, password: str):
         else:
             password_n += x
     print(password_n)
-    pass1 = int(password_n[-2:])
-    pass2 = int(password_n[:1])
-    num = password_n[1:-2]
-    num = str(int(num, pass1))
-    num = int(num, pass2)
-    pool = redis.ConnectionPool(host='pike.redistogo.com',
-                                port=11574, db=0, password='585f4a2cfe0f853d9753d7dd38a550d2')
-    r = redis.StrictRedis(connection_pool=pool)
-    print(r)
-    now_time = datetime.datetime.now().timestamp()
-    o_time = r.get(password_n)
-    if o_time:
-        o_time = str(o_time, encoding='utf-8')
-        print(o_time)
-        if now_time > float(o_time) + 600:
-            return {"no": "sss"}
-    r.set(password_n, datetime.datetime.now().timestamp())
-    image_file = "logo.png"
-    return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
+    if int(password_n[-2:]) + int(password_n[:1]) == 20:
+        num = password_n[1:-2]
+        pool = redis.ConnectionPool(host='pike.redistogo.com',
+                                    port=11574, db=0, password='585f4a2cfe0f853d9753d7dd38a550d2')
+        r = redis.StrictRedis(connection_pool=pool)
+        now_time = datetime.datetime.now().timestamp()
+        o_time = str(r.get(password_n), encoding='utf-8')
+        if o_time:
+            if now_time > float(o_time) + 600:
+                return {"no": "sss"}
+        r.set(password_n, datetime.datetime.now().timestamp())
+        image_file = "logo.png"
+        return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
 
 
 @handler.add(MessageEvent, message=TextMessage)
