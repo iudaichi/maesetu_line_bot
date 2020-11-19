@@ -77,7 +77,7 @@ async def reward(request: Request, password: str):
             password_n += x
     print(password_n)
     if int(password_n[-2:]) + int(password_n[:1]) == 20:
-        num = password_n[1:-2]
+        num = int(password_n[1:-2])
         pool = redis.ConnectionPool(host='pike.redistogo.com',
                                     port=11574, db=0, password='585f4a2cfe0f853d9753d7dd38a550d2')
         r = redis.StrictRedis(connection_pool=pool)
@@ -92,24 +92,24 @@ async def reward(request: Request, password: str):
             image_file = "471227.jpg"
             image_title = "はしれ！まえせつロゴ"
             image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
-            image_desc_num = "10000"
+            image_num = "10000"
         elif num > 199999:
             image_file = "876184.jpg"
             image_title = "はしれ！まえせつロゴ"
             image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
-            image_desc_num = "20000"
+            image_num = "20000"
         elif num > 999999:
             image_file = "200016.jpg"
             image_title = "はしれ！まえせつロゴ"
             image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
-            image_desc_num = "100000"
+            image_num = "100000"
     return templates.TemplateResponse("sub.html", {
         "request": request,
-        "number": num,
+        "number": str(num),
         "image_url": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}',
         "image_title": image_title,
         "image_desc": image_desc,
-        "image_num": f"{image_desc_num}点以上特典です。"
+        "image_num": f"{image_num}点以上特典です。"
     })
 
 
