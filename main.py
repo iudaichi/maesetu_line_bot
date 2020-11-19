@@ -110,6 +110,7 @@ async def reward(request: Request, password: str):
         "image_title": image_title,
         "image_desc": image_desc,
         "image_num": f"{image_num}点以上特典です。"
+
     })
 
 
