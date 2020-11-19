@@ -88,7 +88,7 @@ async def reward(request: Request, password: str):
             if now_time > float(o_time) + 600:
                 return {"no": "sss"}
         r.set(password_n, datetime.datetime.now().timestamp())
-        image_file = "logo.png"
+        image_file = "471227.png"
         return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
 
 
