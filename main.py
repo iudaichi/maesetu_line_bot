@@ -90,11 +90,27 @@ async def reward(request: Request, password: str):
         r.set(password_n, datetime.datetime.now().timestamp())
         if num > 9999:
             image_file = "471227.jpg"
+            image_title = "はしれ！まえせつロゴ"
+            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+            image_desc_num = "10000"
         elif num > 199999:
             image_file = "876184.jpg"
+            image_title = "はしれ！まえせつロゴ"
+            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+            image_desc_num = "20000"
         elif num > 999999:
             image_file = "200016.jpg"
-        return templates.TemplateResponse("sub.html", {"request": request, "number": num, "image": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}'})
+            image_title = "はしれ！まえせつロゴ"
+            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+            image_desc_num = "100000"
+    return templates.TemplateResponse("sub.html", {
+        "request": request,
+        "number": num,
+        "image_url": f'https://maesetu-line-bot.herokuapp.com/static/{image_file}',
+        "image_title": image_title,
+        "image_desc": image_desc,
+        "image_num": f"{image_desc_num}点以上特典です。"
+    })
 
 
 @handler.add(MessageEvent, message=TextMessage)
