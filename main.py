@@ -42,7 +42,7 @@ def callback(X_Line_Signature: str = Header(...), body=Body(...)):
 
 
 @app.get("/test")
-async def test(password:
+async def test(password: str):
     try:
         password_n = ""
         for x in str(password):
