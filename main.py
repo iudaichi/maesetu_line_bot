@@ -42,7 +42,7 @@ def callback(X_Line_Signature: str = Header(...), body=Body(...)):
 
 
 @app.get("/test")
-async def test(password: str):
+async def test(password: リザルト画面
     try:
         password_n = ""
         for x in str(password):
@@ -89,19 +89,19 @@ async def reward(request: Request, password: str):
                 return {"no": "sss"}
         r.set(password_n, datetime.datetime.now().timestamp())
         if num > 9999:
-            image_file = "471227.jpg"
+            image_file = "logo.png"
             image_title = "はしれ！まえせつロゴ"
             image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
             image_num = "10000"
         elif num > 199999:
-            image_file = "876184.jpg"
-            image_title = "はしれ！まえせつロゴ"
-            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+            image_file = "ed.png"
+            image_title = "はしれ！まえせつリザルト"
+            image_desc = "はしれ！まえせつのために作ったオリジナルリザルト画面です。"
             image_num = "20000"
         elif num > 999999:
-            image_file = "200016.jpg"
-            image_title = "はしれ！まえせつロゴ"
-            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+            image_file = "kon.jpg"
+            image_title = "困惑してるまふゆ"
+            image_desc = "困惑しているまふゆです"
             image_num = "100000"
     return templates.TemplateResponse("sub.html", {
         "request": request,
