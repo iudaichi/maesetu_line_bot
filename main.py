@@ -99,14 +99,14 @@ async def reward(request: Request, password: str):
             image_desc = "はしれ！まえせつのために作ったオリジナルリザルト画面です。"
             image_num = "20000"
         elif num > 9999:
-            image_file = "ed.png"
-            image_title = "はしれ！まえせつリザルト"
-            image_desc = "はしれ！まえせつのために作ったオリジナルリザルト画面です。"
-            image_num = "10000"
-        else:
             image_file = "kon.jpg"
             image_title = "困惑してるまふゆ"
             image_desc = "困惑しているまふゆです"
+            image_num = "10000"
+        else:
+            image_file = "logo.png"
+            image_title = "はしれ！まえせつロゴ"
+            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
             image_num = "100"
     return templates.TemplateResponse("sub.html", {
         "request": request,
