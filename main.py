@@ -88,21 +88,26 @@ async def reward(request: Request, password: str):
             if now_time > float(o_time) + 600:
                 return {"no": "sss"}
         r.set(password_n, datetime.datetime.now().timestamp())
-        if num > 9999:
-            image_file = "logo.png"
-            image_title = "はしれ！まえせつロゴ"
-            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+        if num > 999999:
+            image_file = "kon.jpg"
+            image_title = "困惑してるまふゆ"
+            image_desc = "困惑しているまふゆです"
             image_num = "10000"
         elif num > 199999:
             image_file = "ed.png"
             image_title = "はしれ！まえせつリザルト"
             image_desc = "はしれ！まえせつのために作ったオリジナルリザルト画面です。"
             image_num = "20000"
-        elif num > 999999:
+        elif num > 9999:
+            image_file = "logo.png"
+            image_title = "はしれ！まえせつロゴ"
+            image_desc = "はしれ！まえせつのために作ったオリジナルロゴです。"
+            image_num = "100000"
+        else:
             image_file = "kon.jpg"
             image_title = "困惑してるまふゆ"
             image_desc = "困惑しているまふゆです"
-            image_num = "100000"
+            image_num = "100"
     return templates.TemplateResponse("sub.html", {
         "request": request,
         "number": str(num),
